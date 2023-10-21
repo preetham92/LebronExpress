@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=RofiTaste&display=swap');
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        /* Dark theme styles */
+        body.dark-theme {
+            background-color: #121212;
+            color: rgb(255, 255, 255);
+        }
+
+        /* Light theme styles */
+        body.light-theme {
+            background-color: white;
+            color: black;
+        }
+
+        .search-bar {
+            margin-left: auto;
+            margin-right: 15px;
+        }
+    </style>
+    <style>
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .video-embed {
+            width: 32%;
+            /* Adjust the width as needed */
+        }
+    </style>
+    <style>
+        .gallery-img {
+            height: 580px;
+            /* Adjust this value to your desired height */
+            object-fit: cover;
+            /* This property maintains the aspect ratio while covering the container */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 60px;
+            padding-right: 60px;
+            padding-bottom: 60px;
+            padding-left: 60px;
+        }
+
+        .subscribe {
+            flex-basis: 50%;
+        }
+
+        .subscribe h2 {
+            font-weight: bold;
+        }
+
+        .subscribe p {
+            font-size: 12px;
+        }
+
+        .subscribe input[type="email"] {
+            font-size: 16px;
+            padding: 15px 23px;
+            border-color: secondary;
+            border-radius: 0px;
+            border-width: 1px;
+        }
+
+        .subscribe button {
+            font-size: 16px;
+            padding: 15px 23px;
+            margin: 0px;
+            margin-left: 10px;
+            border-color: secondary;
+            border-radius: 0px;
+            border-width: 1px;
+            background-color: secondary-background-color;
+            color: text-color;
+        }
+
+        .image-container {
+            border-radius: 16px;
+            padding: 70px;
+            background-color: primary-background-color;
+            color: text-color;
+            max-width: 345px;
+        }
+    </style>
+    <style>
+        body,
+        html {
+            height: auto;
+            margin: 0;
+        }
+
+        .our-movies {
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <style>
+        .green-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .green-button:hover {
+            background-color: darkgreen;
+        }
+
+        .unseen-clips {
+            margin-left: 3%;
+        }
+
+        .our-movies {
+            margin-left: 3%;
+        }
+    </style>
+    <style>
+        .display-4.fst-italic {
+            font-family: 'Glamour Absolute', serif;
+        }
+    </style>
+
+    <style>
+        .subscribe-form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .green-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .green-button:hover {
+            background-color: darkgreen;
+        }
+
+        /* Use the "Nova Flat" font for specific elements */
+        h1 {
+            font-family: 'Nova Flat', sans-serif;
+            /* Add additional styles here if needed */
+        }
+
+        /* You can apply the font to other elements as well */
+        p {
+            font-family: 'Impact', sans-serif;
+            /* Add additional styles here if needed */
+        }
+
+        p2 {
+            font-family: 'Arial', sans-serif;
+            opacity: 2;
+            /* Add additional styles here if needed */
+        }
+
+        h2 {
+            font-family: 'Monospace', sans-serif;
+            /* Add additional styles here if needed */
+        }
+
+        .faded-text {
+            opacity: 0.7;
+            /* Adjust the opacity value as needed */
+        }
+
+        .text-and-image-container {
+            display: flex;
+            align-content: center;
+            align-items: right;
+            /* Vertically align content */
+        }
+
+        .text-and-image-container p {
+            flex: 5;
+            /* Make the text expand to fill the available space */
+            margin-right: 10px;
+            /* Add some space between the text and image */
+        }
+
+        .small-image {
+            width: 700px;
+            /* Adjust the width to your preferred size */
+            height: auto;
+            /* Automatically adjust the height to maintain the image's aspect ratio */
+        }
+    </style>
+    <style>
+        .custom-background {
+            position: relative;
+            background-image: url('space.jpg');
+            /* Replace 'background-image.jpg' with your actual image file path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .custom-background::before {
+            content: "";
+            background-color: rgba(255, 254, 254, 0.363);
+            /* Adjust the last value (0.4) to control the opacity (0.0 to 1.0) */
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .custom-background .col-lg-6 p {
+            color: #000000;
+            /* Change to your desired text color, e.g., white (#fff) */
+            background-color: rgba(255, 255, 255, 0.473);
+            /* Adjust the last value (0.3) to control the opacity of the text background (0.0 to 1.0) */
+            padding: 10px;
+            /* Add padding to create space around the text */
+        }
+    </style>
+    <style>
+        .custom-margin {
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            // Activate the carousel
+            $('#myCarousel').carousel({
+                interval: 500, // Set the interval (in milliseconds) for automatic slide change
+
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Impact&display=swap">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Rockwell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Waltograph&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monarda&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Brush+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path_to_your_font_files/glamour-absolute.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap">
+
+
+
+    <title>Lebron Express</title>
+</head>
+
+<body>
+    <!--navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="lbj.jpg" class="img-thumbnail" alt="logo" width="100" height="100">
+                <span class="ml-5" style="font-family: 'Waltograph', cursive;">Lebron Express</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target=" #navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex">
+                <button class="btn btn-dark mr-2" id="darkThemeBtn">Dark</button>
+                <button class="btn btn-light" id="lightThemeBtn">Light</button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            MENU
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="aboutus.html">ABOUT US</a></li>
+                            <li><a class="dropdown-item" href="notfound.html">POSTS</a></li>
+                            <li><a class="dropdown-item" href="notfound.html">CAMPUS BUZZ</a></li>
+                            <li><a class="dropdown-item" href="notfound.html">REVIEW</a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item active" href="notes.html">NOTES</a></li>
+                            <li><a class="dropdown-item" href="notfound.html">E-BOOKS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <!--//<p5>select</p5>
+//<a href="" download="">Download PDF</a>
+-->
+
+    <h1 class="text-center">CSE 2022 scheme</h1>
+    <div class="container-fluid align-items-center ">
+        <p class="mx-5 mt-2 mb-1 ">Mathematics for CSE Stream-I</p>
+        <p3>Sticking to the teacher's provided practice questions and diligently following the textbook should suffice
+            for achieving a commendable score.
+            The textbook will be provided shortly.
+        </p3>
+        <p class="mx-5 mt-2 mb-1 ">Chemistry For CSE stream</p>
+        <a href="Module-1-Sensors and Energy Systems.pdf" download="Module-1-Sensors and Energy Systems.pdf">Module-1:
+            Sensors </a><br>
+        <a href="Module-1 Energy Systems.pdf" download="Module-1 Energy Systems.pdf">Module-1: Energy System</a><br>
+        <a href="Module-2 Memory and Display Systems.pdf" download="Module-2 Memory and Display Systems.pdf">Module-2:
+            Memory and Display Systems </a><br>
+        <a href="Module 3.pdf" download="Module 3.pdf">Module-3: Corrosion and Electrode System</a><br>
+        <a href="Module-4 Polymers and Green Fuels.pdf" download="Module-4 Polymers and Green Fuels.pdf">Module-4:
+            Polymers and Green Fuels </a><br>
+        <a href="M_5 E Waste management.pptx" download="M_5 E Waste management.pptx">Module-5: E-Waste</a>
+        <p class="mx-5 mt-2 mb-1 ">Introduction to Electronics Engineering</p>
+        <a href="Module-1(BESCK204C).pdf" download="Module-1(BESCK204C).pdf">Module-1</a><br>
+        <a href="Module-2(BESCK204C).pdf" class="Module-2(BESCK204C).pdf">Module-2</a><br>
+        <a href="Module 3..pdf" class="Module 3..pdf">Module-3</a><br>
+        <a href="Electronics.module4.pdf.pdf" class="Electronics.module4.pdf.pdf">Module-4</a>
+        <p1 class="mx-5 ">OR</p1>
+        <a href="EC_M4_notes (1).pdf" class="EC_M4_notes (1).pdf">Module-4</a><br>
+        <a href="MODULE 5 NOTES.pdf" class="MODULE 5 NOTES.pdf">Module-5</a><br>
+        <p class="mx-5 mt-2 mb-1 ">Introduction to Python Programming</p>
+        <a href="Module 1 Notes - Introduction to Python Programming - BKR.pdf"
+            class="Module 1 Notes - Introduction to Python Programming - BKR.pdf">Module-1</a><br>
+        <a href="1e76ec1c-d464-4b24-99f3-856587b37b83.pdf"
+            class="1e76ec1c-d464-4b24-99f3-856587b37b83.pdf">Module-2</a><br>
+        <a href="Module 3 Notes.pdf" class="Module 3 Notes.pdf">Module-3</a><br>
+        <a href="Module 4 Notes.pdf" class="Module 4 Notes.pdf">Module-4</a><br>
+        <a href="Module.5 Notes.pdf" class="Module.5 Notes.pdf">Module-5</a><br>
+        <p class="mx-5 mt-2 mb-1 ">Computer Aided Engineering Drawing</p>
+        <a href="VTU Primer_Chapter 03_Planes.pdf" class="VTU Primer_Chapter 03_Planes.pdf">Planes</a><br>
+        <a href="VTU Primer_Chapter 02_LINES.pdf" class="VTU Primer_Chapter 02_LINES.pdf">Lines</a><br>
+        <a href="VTU Primer_Chapter 01_Points.pdf" class="VTU Primer_Chapter 01_Points.pdf">Points</a><br>
+        <a href="VTU Primer_Chapter 04_Solids.pdf" class="VTU Primer_Chapter 04_Solids.pdf">Solids</a><br>
+        <a href="VTU Primer_Chapter 05_Isometric Projection.pdf"
+            class="VTU Primer_Chapter 05_Isometric Projection.pdf">Isometric</a><br>
+        <a href="VTU Primer_Chapter 06_Development of lateral surfaces.pdf"
+            class="VTU Primer_Chapter 06_Development of lateral surfaces.pdf">Development</a><br>
+    </div>
+    <div class="text-center">
+        <p>Additional resources for other subjects are available upon request.<br>You can reach out to us via email
+            or Instagram for further inquiries.
+        </p>
+    </div>
+
+
+
+
+
+
+    <!--footer-->
+    <footer class="container-fluid bg-dark text-white text-center py-3">
+
+        <p>&copy; 2023 Lebron Express. All rights reserved.</p>
+        <a href="mailto:crescendo.unleashed@gmail.com">Contact Us</a> |
+        <a href="https://www.instagram.com/lebrongivesnotes" target="_blank">Instagram</a> |
+        <a href="about.html">About</a> |
+        <a href="terms.html">Terms of Service</a></p>
+
+    </footer>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+    <script>
+        const darkThemeBtn = document.getElementById('darkThemeBtn');
+        const lightThemeBtn = document.getElementById('lightThemeBtn');
+        const body = document.body;
+
+        darkThemeBtn.addEventListener('click', () => {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+        });
+
+        lightThemeBtn.addEventListener('click', () => {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+        });
+    </script>
+    <script>
+        document.getElementById("subscription-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Simulate a successful subscription (for demonstration purposes)
+            // You should replace this with your actual subscription handling code
+
+            // Display the subscription feedback message
+            document.getElementById("subscription-feedback").style.display = "block";
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById("search-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get the search input value
+            var searchInput = document.getElementById("search-input").value.toLowerCase();
+
+            // Simulate search results (for demonstration purposes)
+            var searchData = [
+                "result 1",
+                "result 2",
+                "result 3"
+            ];
+
+            var searchResults = searchData.filter(function (result) {
+                return result.toLowerCase().includes(searchInput);
+            });
+
+            // Update the search results or display a message
+            var searchResultsContainer = document.getElementById("search-results");
+            if (searchResults.length > 0) {
+                var resultsHtml = "<ul>";
+                searchResults.forEach(function (result) {
+                    resultsHtml += "<li>" + result + "</li>";
+                });
+                resultsHtml += "</ul>";
+                searchResultsContainer.innerHTML = resultsHtml;
+            } else {
+                searchResultsContainer.innerHTML = "<p>No results found for '" + searchInput + "'</p>";
+            }
+        });
+    </script>
+</body>
+
+</html>

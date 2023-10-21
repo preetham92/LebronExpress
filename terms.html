@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=RofiTaste&display=swap');
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        /* Dark theme styles */
+        body.dark-theme {
+            background-color: #121212;
+            color: rgb(255, 255, 255);
+        }
+
+        /* Light theme styles */
+        body.light-theme {
+            background-color: white;
+            color: black;
+        }
+
+        .search-bar {
+            margin-left: auto;
+            margin-right: 15px;
+        }
+    </style>
+    <style>
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .video-embed {
+            width: 32%;
+            /* Adjust the width as needed */
+        }
+    </style>
+    <style>
+        .gallery-img {
+            height: 580px;
+            /* Adjust this value to your desired height */
+            object-fit: cover;
+            /* This property maintains the aspect ratio while covering the container */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 60px;
+            padding-right: 60px;
+            padding-bottom: 60px;
+            padding-left: 60px;
+        }
+
+        .subscribe {
+            flex-basis: 50%;
+        }
+
+        .subscribe h2 {
+            font-weight: bold;
+        }
+
+        .subscribe p {
+            font-size: 12px;
+        }
+
+        .subscribe input[type="email"] {
+            font-size: 16px;
+            padding: 15px 23px;
+            border-color: secondary;
+            border-radius: 0px;
+            border-width: 1px;
+        }
+
+        .subscribe button {
+            font-size: 16px;
+            padding: 15px 23px;
+            margin: 0px;
+            margin-left: 10px;
+            border-color: secondary;
+            border-radius: 0px;
+            border-width: 1px;
+            background-color: secondary-background-color;
+            color: text-color;
+        }
+
+        .image-container {
+            border-radius: 16px;
+            padding: 70px;
+            background-color: primary-background-color;
+            color: text-color;
+            max-width: 345px;
+        }
+    </style>
+    <style>
+        body,
+        html {
+            height: auto;
+            margin: 0;
+        }
+
+        .our-movies {
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <style>
+        .green-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .green-button:hover {
+            background-color: darkgreen;
+        }
+
+        .unseen-clips {
+            margin-left: 3%;
+        }
+
+        .our-movies {
+            margin-left: 3%;
+        }
+    </style>
+    <style>
+        .display-4.fst-italic {
+            font-family: 'Glamour Absolute', serif;
+        }
+    </style>
+
+    <style>
+        .subscribe-form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .green-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .green-button:hover {
+            background-color: darkgreen;
+        }
+
+        /* Use the "Nova Flat" font for specific elements */
+
+
+        .faded-text {
+            opacity: 0.7;
+            /* Adjust the opacity value as needed */
+        }
+
+        .text-and-image-container {
+            display: flex;
+            align-content: center;
+            align-items: right;
+            /* Vertically align content */
+        }
+
+        .text-and-image-container p {
+            flex: 5;
+            /* Make the text expand to fill the available space */
+            margin-right: 10px;
+            /* Add some space between the text and image */
+        }
+
+        .small-image {
+            width: 700px;
+            /* Adjust the width to your preferred size */
+            height: auto;
+            /* Automatically adjust the height to maintain the image's aspect ratio */
+        }
+    </style>
+    <style>
+        .custom-background {
+            position: relative;
+            background-image: url('space.jpg');
+            /* Replace 'background-image.jpg' with your actual image file path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .custom-background::before {
+            content: "";
+            background-color: rgba(255, 254, 254, 0.363);
+            /* Adjust the last value (0.4) to control the opacity (0.0 to 1.0) */
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .custom-background .col-lg-6 p {
+            color: #000000;
+            /* Change to your desired text color, e.g., white (#fff) */
+            background-color: rgba(255, 255, 255, 0.473);
+            /* Adjust the last value (0.3) to control the opacity of the text background (0.0 to 1.0) */
+            padding: 10px;
+            /* Add padding to create space around the text */
+        }
+    </style>
+    <style>
+        .custom-margin {
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            // Activate the carousel
+            $('#myCarousel').carousel({
+                interval: 500, // Set the interval (in milliseconds) for automatic slide change
+
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Impact&display=swap">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Rockwell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Waltograph&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monarda&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Brush+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path_to_your_font_files/glamour-absolute.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap">
+
+
+
+    <title>Lebron Express</title>
+</head>
+
+<body>
+    <!--navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="lbj.jpg" class="img-thumbnail" alt="logo" width="100" height="100">
+                <span class="ml-5" style="font-family: 'Waltograph', cursive;">Lebron Express</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target=" #navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex">
+                <button class="btn btn-dark mr-2" id="darkThemeBtn">Dark</button>
+                <button class="btn btn-light" id="lightThemeBtn">Light</button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            MENU
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">ABOUT US</a></li>
+                            <li><a class="dropdown-item" href="#">POSTS</a></li>
+                            <li><a class="dropdown-item" href="#">CAMPUS BUZZ</a></li>
+                            <li><a class="dropdown-item" href="#">REVIEW</a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">NOTES</a></li>
+                            <li><a class="dropdown-item" href="#">E-BOOKS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="container-fluid  ">
+
+        <h1>Terms of Service</h1>
+        <p>These Terms of Service ("Terms") govern your use of the LeBron Gives Notes website (the "Service") operated
+            by
+            LeBron Gives Notes ("us," "we," or "our"). By accessing or using the Service, you agree to be bound by these
+            Terms. If you disagree with any part of these Terms, you may not use the Service.</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing and using our Service, you acknowledge that you have read, understood, and agree to be bound by
+            these Terms. If you do not agree with any of these Terms, please do not use the Service.</p>
+
+        <h2>2. Use of the Service</h2>
+        <p>You agree to use the Service for lawful purposes and in a way that does not violate the rights of other users
+            or
+            third parties. You shall not engage in any conduct that is prohibited by applicable law or violates these
+            Terms.
+        </p>
+
+        <h2>3. Intellectual Property</h2>
+        <p>The content and materials on this website are protected by intellectual property laws, including copyright
+            and
+            trademark laws. You may not copy, reproduce, or distribute any content from the Service without our prior
+            written consent.</p>
+
+        <h2>4. Privacy Policy</h2>
+        <p>Your use of the Service is also governed by our Privacy Policy, which can be found [link to your Privacy
+            Policy
+            page]. Please review our Privacy Policy to understand how we collect, use, and share your personal
+            information.
+        </p>
+
+        <h2>5. Changes to Terms</h2>
+        <p>We reserve the right to update or modify these Terms at any time. Any changes will be effective upon posting
+            the
+            updated Terms on the website. You are responsible for reviewing the Terms periodically, and your continued
+            use
+            of the Service after any changes indicates your acceptance of the updated Terms.</p>
+
+        <h2>6. Termination</h2>
+        <p>We may terminate or suspend your access to the Service at our sole discretion, without notice or liability,
+            for
+            any reason, including if you violate these Terms or for any other conduct that we believe is harmful to
+            other
+            users or our business.</p>
+
+        <h2>7. Contact Information</h2>
+        <p>If you have any questions or concerns about these Terms, please contact us at [contact email or address].</p>
+
+        <p>Thank you for using LeBron Gives Notes!</p>
+
+
+    </div>
+
+
+
+    <!--footer-->
+    <footer class="container-fluid bg-dark text-white text-center py-3">
+
+        <p>&copy; 2023 Lebron Express. All rights reserved.</p>
+        <a href="mailto:crescendo.unleashed@gmail.com">Contact Us</a> |
+        <a href="https://www.instagram.com/lebrongivesnotes" target="_blank">Instagram</a> |
+        <a href="about.html">About</a> |
+        <a href="terms.html">Terms of Service</a></p>
+
+    </footer>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+    <script>
+        const darkThemeBtn = document.getElementById('darkThemeBtn');
+        const lightThemeBtn = document.getElementById('lightThemeBtn');
+        const body = document.body;
+
+        darkThemeBtn.addEventListener('click', () => {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+        });
+
+        lightThemeBtn.addEventListener('click', () => {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+        });
+    </script>
+    <script>
+        document.getElementById("subscription-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Simulate a successful subscription (for demonstration purposes)
+            // You should replace this with your actual subscription handling code
+
+            // Display the subscription feedback message
+            document.getElementById("subscription-feedback").style.display = "block";
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById("search-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get the search input value
+            var searchInput = document.getElementById("search-input").value.toLowerCase();
+
+            // Simulate search results (for demonstration purposes)
+            var searchData = [
+                "result 1",
+                "result 2",
+                "result 3"
+            ];
+
+            var searchResults = searchData.filter(function (result) {
+                return result.toLowerCase().includes(searchInput);
+            });
+
+            // Update the search results or display a message
+            var searchResultsContainer = document.getElementById("search-results");
+            if (searchResults.length > 0) {
+                var resultsHtml = "<ul>";
+                searchResults.forEach(function (result) {
+                    resultsHtml += "<li>" + result + "</li>";
+                });
+                resultsHtml += "</ul>";
+                searchResultsContainer.innerHTML = resultsHtml;
+            } else {
+                searchResultsContainer.innerHTML = "<p>No results found for '" + searchInput + "'</p>";
+            }
+        });
+    </script>
+</body>
+
+</html>
